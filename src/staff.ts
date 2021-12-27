@@ -12,9 +12,9 @@ import * as db from './db';
 function ticketMsg(name, message) {
   return `${cache.config.language.dear} `+
     `${middleware.escapeText(name)},\n\n`+
-    `${middleware.escapeText(message.text)}\n\n`+
-    `${cache.config.language.regards}\n`+
-    `${message.from.first_name}`;
+    `${middleware.escapeText(message.text)}\n\n`;
+  /*  `${cache.config.language.regards}\n`+
+    `${message.from.first_name}`; */
 }
 
 /**
@@ -97,7 +97,7 @@ function chat(ctx, bot) {
       if (userid === null || ticket == undefined) {
         middleware.reply(ctx, cache.config.language.ticketClosedError);
       }
-      
+
       // replying to non-ticket
       if (ticket == undefined) {
         return;
@@ -122,7 +122,7 @@ function chat(ctx, bot) {
           Extra.HTML()
         );
       }
-      
+
       // To staff msg sent
       middleware.msg(ctx.chat.id,
           `${cache.config.language.msg_sent} ${name[1]}`,
@@ -139,8 +139,8 @@ function chat(ctx, bot) {
   } catch (e) {
     console.log(e);
     middleware.msg(
-        cache.config.staffchat_id, `An error occured, please 
-          report this to your admin: \n\n ${e}`,
+        cache.config.staffchat_id, `An error occured, please
+          report this to your local Kasper: \n\n ${e}`,
         // eslint-disable-next-line new-cap
         Extra.HTML().notifications(false)
     );
