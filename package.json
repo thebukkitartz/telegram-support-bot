@@ -16,7 +16,7 @@
     "scripts": {
         "tsc": "tsc",
         "dev": "ts-node-dev ./src/index.ts",
-        "prod": "ts-node ./src/index.ts",
+        "prod": "forever start --minUptime 1000 --spinSleepTime 1000 ./build/src/index.js",
         "build": "tsc",
         "test": "env TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\" }' mocha -r ts-node/register 'test/**/*.ts' --exit"
     },
