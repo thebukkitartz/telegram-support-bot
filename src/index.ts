@@ -22,7 +22,7 @@ import * as signal from './addons/signal';
 let defaultBot;
 function createBot(noCache = false) {
   defaultBot = new Telegraf(cache.config.bot_token);
-  
+
   return defaultBot;
 }
 
@@ -62,9 +62,9 @@ function main(bot = defaultBot, logs = true) {
   // Bot commands
   bot.command('open', (ctx) => commands.openCommand(ctx));
   bot.command('close', (ctx) => commands.closeCommand(bot, ctx));
-  bot.command('ban', (ctx) => commands.banCommand(bot, ctx));
+  bot.command('sperren', (ctx) => commands.banCommand(bot, ctx));
   bot.command('reopen', (ctx) => commands.reopenCommand(bot, ctx));
-  bot.command('unban', (ctx) => commands.unbanCommand(bot, ctx));
+  bot.command('entsperren', (ctx) => commands.unbanCommand(bot, ctx));
   bot.command('clear', (ctx) => commands.clearCommand(ctx));
   bot.command('start', (ctx) => {
     ctx.session.mode = undefined;
@@ -72,11 +72,11 @@ function main(bot = defaultBot, logs = true) {
     if (ctx.chat.type == 'private') {
       middleware.reply(ctx, cache.config.language.startCommandText);
       if (cache.config.categories && cache.config.categories.length > 0)
-        setTimeout(() => middleware.reply(ctx, cache.config.language.services, inline.replyKeyboard(keys)), 500);    
+        setTimeout(() => middleware.reply(ctx, cache.config.language.services, inline.replyKeyboard(keys)), 500);
     } else middleware.reply(ctx, cache.config.language.prvChatOnly);
   });
   bot.command('id', (ctx) => middleware.reply(ctx, ctx.from.id + ' ' + ctx.chat.id));
-  bot.command('faq', (ctx) => 
+  bot.command('faq', (ctx) =>
   middleware.reply(ctx, cache.config.language.faqCommandText, Extra.HTML()));
   bot.command('help', (ctx) => middleware.reply(ctx, cache.config.language.helpCommandText, Extra.HTML()));
   bot.command('links', (ctx) => {
@@ -103,11 +103,11 @@ function main(bot = defaultBot, logs = true) {
 
   // Bot ons
   bot.on('callback_query', (ctx) => inline.callbackQuery(bot, ctx));
-  bot.on('photo', (ctx) => middleware.downloadPhotoMiddleware(bot, ctx, () => 
+  bot.on('photo', (ctx) => middleware.downloadPhotoMiddleware(bot, ctx, () =>
     files.fileHandler('photo', bot, ctx)));
-  bot.on('video', (ctx) => middleware.downloadVideoMiddleware(bot, ctx, () => 
+  bot.on('video', (ctx) => middleware.downloadVideoMiddleware(bot, ctx, () =>
     files.fileHandler('video', bot, ctx)));
-  bot.on('document', (ctx) => middleware.downloadDocumentMiddleware(bot, ctx, () => 
+  bot.on('document', (ctx) => middleware.downloadDocumentMiddleware(bot, ctx, () =>
     files.fileHandler('document', bot, ctx)));
 
   // Bot regex
