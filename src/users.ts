@@ -19,7 +19,7 @@ function ticketMsg(ticket, message, anon = true, autoReplyInfo) {
           `#T${ticket.toString().padStart(6, '0')} ${cache.config.language.from} ` +
           `<a href="${link}">` +
           `${middleware.escapeText(message.from.first_name)}</a> ${cache.config.language.language}: ` +
-          `${message.from.language_code} ${cache.ticketIDs}\n\n` +
+          `${message.from.language_code} ${cache.ticketID}\n\n` +
           `${middleware.escapeText(message.text)}\n\n` +
           `<i>${autoReplyInfo}</i>`;
 }
