@@ -6,8 +6,8 @@
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/)
 [![pipeline status](https://gitlab.com/botty-group/erics-container-repo/badges/main/pipeline.svg)](https://gitlab.com/botty-group/erics-container-repo/-/pipelines)
 
-# [Telegram Support Bot](https://github.com/bostrot/telegram-support-bot) (Ticketing system for Telegram)
-is a support bot for telegram bots, using the Telegraf framework (by [@dotcypress](https://github.com/dotcypress)). It lets users create tickets which will be send to a staff group and can be answered by a reply.
+# [Telegram Support Bot](https://github.com/thebukkitartz/telegram-support-bot) (Ticketing system for Telegram)
+is a support bot for the AllAbout Group Network, using the Telegraf framework (by [@dotcypress](https://github.com/dotcypress)). It lets users create tickets which will be send to a staff group and can be answered by a reply.
 
 Telegram ticketing implementation:
 
@@ -36,7 +36,10 @@ Currently the support chat offers these commands (staff commands):
 * `/open` - lists all open tickets (messages where noone has replied yet)
 * `/close` - close a ticket manually (in case someone writes 'thank you')
 * `/id` - returns your telegram id and the group chat id (1234567 -1234567890)
-* `/ban` - ban a person from writing to your chat
+* `/sperren` - ban a person from writing to your chat
+* `/entsperren` - unban a person from writing to your chat
+* `/allclear` - Schließt alle offenen Tickets ohne die Nutzer zu benachrichtigen
+* `/reopen` - Öffnet ein bereits geschlossenes Ticket einmalig
 
 User commands:
 * `/start` - tells the user how to use this bot
@@ -78,8 +81,8 @@ In order to make old versions work with the master you would need to use the new
 
 ## Telegram token
 
-To use the [Telegram Bot API](https://core.telegram.org/bots/api), 
-you first have to [get a bot account](https://core.telegram.org/bots) 
+To use the [Telegram Bot API](https://core.telegram.org/bots/api),
+you first have to [get a bot account](https://core.telegram.org/bots)
 by [chatting with BotFather](https://core.telegram.org/bots#6-botfather).
 
 BotFather will give you a *token*, something like `123456789:AbCdfGhIJKlmNoQQRsTUVwxyZ`.
@@ -87,7 +90,3 @@ BotFather will give you a *token*, something like `123456789:AbCdfGhIJKlmNoQQRsT
 ## Help
 
 You are welcome to contribute with pull requests, bug reports, ideas and donations.
-
-## Custom requests
-
-Hit me up for hosting or other custom solutions [@bostrot_bot](http://t.me/bostrot_bot)
