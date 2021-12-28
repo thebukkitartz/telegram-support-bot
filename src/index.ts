@@ -65,7 +65,7 @@ function main(bot = defaultBot, logs = true) {
   bot.command('sperren', (ctx) => commands.banCommand(bot, ctx));
   bot.command('reopen', (ctx) => commands.reopenCommand(bot, ctx));
   bot.command('entsperren', (ctx) => commands.unbanCommand(bot, ctx));
-  bot.command('clear', (ctx) => commands.clearCommand(ctx));
+  bot.command('allclear', (ctx) => commands.clearCommand(ctx));
   bot.command('start', (ctx) => {
     ctx.session.mode = undefined;
     ctx.session.modeData = undefined;

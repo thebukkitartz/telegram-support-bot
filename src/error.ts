@@ -27,7 +27,7 @@ function init(bot, logs = true) {
           if (err) throw err;
         });
     console.error(new Date() + ': ' + 'Error: ', err);
-    middleware.msg(cache.config.staffchat_id, `An error occured, please report this to your admin: \n\n ${err}`, {});
+    middleware.msg(cache.config.staffchat_id, `An error occured, please report this to your local Kasper: \n\n ${err}`, {});
     process.exit(1);
   });
 
@@ -42,7 +42,7 @@ function init(bot, logs = true) {
         });
     console.dir(new Date() + ': ' + err["stack"]);
     bot.drop();
-    middleware.msg(cache.config.staffchat_id, `An error occured, please report this to your admin: \n\n ${err}`, {});
+    middleware.msg(cache.config.staffchat_id, `An error occured, please report this to your local Kasper: \n\n ${err}`, {});
   });
 }
 
